@@ -168,7 +168,7 @@ body {
   position:relative;
   top: 10px;
   left: 15px;
-  font-family: TRY Grtsk;
+  font-family: "TRY Grtsk";
   font-size: 12px;
   font-style: italic;
   font-weight: 700;
@@ -177,6 +177,7 @@ body {
 }
 
 .search input{
+  z-index: 1;
   font-size: 25px;
   position: fixed;
   padding: 25px 275px;
@@ -186,14 +187,15 @@ body {
   border-radius: 150px;
   background: #FFFFFF;
   box-shadow: 5px 5px 1px 1px #000;
-  background-image: url('https://img.icons8.com/ios-filled/50/000000/search.png'); /* Add search icon */
-  background-size: 40px; /* Size of the icon */
-  background-position: 200px center; /* Position the icon */
-  background-repeat: no-repeat; /* Do not repeat the icon */
+  background-image: url('https://img.icons8.com/ios-filled/50/000000/search.png');
+  background-size: 35px;
+  background-position: 200px center;
+  background-repeat: no-repeat; 
+  transition: padding 0.3s ease;
+
 }
 
-.searchIcon{
-  display: fixed;
-  top: 60px;
-
+.search input:hover {
+  padding: 25px 250px; /* Shrink padding when hovered */
+  
 }
