@@ -1,13 +1,51 @@
+
+
+
+
+/* Node.js */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  background-color: #2F2F2F;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
 }
+
+.nodeContainer{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 10 columns */
+  grid-template-rows: repeat(9, 1fr);
+  grid-auto-flow: dense;
+  gap: 10px;
+  min-width: 1500px;
+  min-height: 1350px;  
+  padding: 20px;
+}
+
+.mynode{
+  height: clamp(272px, calc(20vw * 1.09), 500px);
+  width: clamp(249px, 20vw, 500px);
+  border-radius: 16px;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+.mynode h3{
+  position:relative;
+  top: 10px;
+  left: 15px;
+  font-family: TRY Grtsk;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 14.4px;
+  text-align: left;
+}
+
