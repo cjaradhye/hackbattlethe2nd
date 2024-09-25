@@ -22,5 +22,5 @@ const loginScchema = new Schema(
   { timestamps: true }
 );
 
-const login = mongoose.model("admin", loginScchema);
+const login = mongoose.model("login", loginScchema);
 export default login;
