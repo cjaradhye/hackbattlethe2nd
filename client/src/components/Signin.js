@@ -1,13 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { auth, provider, signInWithPopup } from "../../../components/firebase";
-
+import Notification from "./Notification.js";
+import { auth, provider, signInWithPopup } from "./firebase/firebase.js";
 
 const SignIn = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
   const [color, setColor] = useState("");
+
   useEffect(() => {
     localStorage.clear();
   }, []);
@@ -48,7 +49,7 @@ const SignIn = () => {
       const idToken1 = await result.user.getIdToken();
 
       const response = await axios.post(
-        "https://iste-website-api.vercel.app/admin/login",
+        "http://localhost:5500/login",
         {},
         {
           headers: {
@@ -91,7 +92,7 @@ const SignIn = () => {
         message={notificationMessage}
         show={showNotification}
         color={color}
-        className="mt-32"
+        className="mt-"
         closeNotification={() => setShowNotification(false)}
       />
     </div>

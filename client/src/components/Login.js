@@ -1,4 +1,5 @@
 import React from "react";
+import { auth, provider, signInWithPopup } from "./firebase/firebase";
 
 function Login(){
     return(<div class="login-container">
