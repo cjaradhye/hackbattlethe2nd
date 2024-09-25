@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-// import configDB from "../config/mongodb.js";
+import configDB from "../config/mongodb.js";
 // import loginRouter from "../routes/login.js";
 const app = express();
 dotenv.config();
@@ -25,7 +25,7 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use("/", loginRouter);
+// app.use("/", loginRouter);
 app.listen(port, () => {
   console.log("Server is running on port " + port);
 });
