@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import Notification from "./Notification.jsx";
+import { auth, provider, signInWithPopup } from "./firebase.jsx";
 import Notification from "./Notification.jsx";
 import { auth, provider, signInWithPopup } from "./firebase.jsx";
 
@@ -65,11 +68,13 @@ const SignIn = () => {
       }
     } catch (err) {
       console.log(err);
+      console.log(err);
       if (err.status === 404) {
         setNotificationMessage("User Not Found");
         setShowNotification(true);
         setColor("red");
       } else {
+        setNotificationMessage("Error: " + err.data.message);
         setNotificationMessage("Error: " + err.data.message);
         setShowNotification(true);
         setColor("red");
@@ -109,6 +114,7 @@ const SignIn = () => {
         show={showNotification}
         color={color}
         className=""
+        className=""
         closeNotification={() => setShowNotification(false)}
       />
     </div>
@@ -116,3 +122,4 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
