@@ -1,7 +1,7 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import Notification from "./Notification.js";
-import { auth, provider, signInWithPopup } from "./firebase/firebase.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Notification from "./Notification.jsx";
+import { auth, provider, signInWithPopup } from "./firebase.jsx";
 
 const SignIn = () => {
   const [showNotification, setShowNotification] = useState(false);
@@ -64,12 +64,13 @@ const SignIn = () => {
         window.location.href = "/admin/1007/dashboard";
       }
     } catch (err) {
+      console.log(err);
       if (err.status === 404) {
         setNotificationMessage("User Not Found");
         setShowNotification(true);
         setColor("red");
       } else {
-        setNotificationMessage("Error: " + error.data.message);
+        setNotificationMessage("Error: " + err.data.message);
         setShowNotification(true);
         setColor("red");
       }
@@ -79,19 +80,35 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <button className="mt-48" onClick={handleSignUp}>
-        Signup with Google
-      </button>
-      <button className="mt-72" onClick={handleLogIn}>
-        Login with Google
-      </button>
+    <div className="LoginPage">
+      
+      <div className="loginbtns">
+        <div className="loginTitle">
+          <img src="./images/logo.png" className="loginlogo" />
+          <h3>Welcome Back to Stegosaurus</h3>
+        </div>
+        <div className="loginButtons">
+          <button className="loginbtn" onClick={handleSignUp}>
+            <div className="insideButton">
+              <img src="./images/google.png" className="glogo" />
+              <p>Signup with Google</p>
+            </div>
+          </button>
+          <button className="loginbtn" onClick={handleLogIn}>
+            <div className="insideButton">
+              <img src="./images/google.png" className="glogo" />
+              <p>Login with Google</p>
+            </div>
+          </button>
+        </div>
+      </div>
+
       {/* Notification Component */}
       <Notification
         message={notificationMessage}
         show={showNotification}
         color={color}
-        className="mt-"
+        className=""
         closeNotification={() => setShowNotification(false)}
       />
     </div>

@@ -1,68 +1,199 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* #login-page */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+body{
+  margin: 0px;
+  padding: 0px;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #2f2f2f;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+#root{
+  padding: 0px;
 }
-a:hover {
-  color: #535bf2;
+
+.LoginPage{
+  background-image: url('./images/signin-bg.png');
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
 }
+
+.bg-login{
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  opacity: 50%;
+}
+
+.loginbtns{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  width: 40vw;
+  height: 60vh;
+}
+
+.loginButtons{
+  display: flex;
+  gap: 10%;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginbtn{
+  width: 45%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px solid #000;
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 0px 0px #000;
+}
+
+.loginbtn:hover{
+  box-shadow: 8px 8px 0px 0px #000;
+}
+
+.loginTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.loginlogo{
+  width: 50px;
+}
+
+.loginTitle h3{
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(23px, 3vw, 44px);
+  font-style: normal;
+  font-weight: 590;
+}
+
+.insideButton{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.insideButton p{
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 30px;
+}
+
+.glogo{
+  height: 90px;
+}
+
+
+@media (max-width: 770px){
+  .loginButtons{
+    flex-direction: column;
+  }
+
+  .loginbtn{
+    width: 100%;
+    height: 45%;
+    border-radius: 20px;
+    border: 2px solid #000;
+    background-color: #FFFFFF;
+    box-shadow: 4px 4px 0px 0px #000;
+  }
+
+  .insideButton{
+    gap: 20px; 
+  }
+
+  .glogo{
+    height: 60px;
+  }
+
+  .insideButton p{
+    font-size: 20px;
+  }
+}
+
+/* #home-page */
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  overflow: auto;
+  background-color: #2F2F2F;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.nodeContainer{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 10 columns */
+  grid-template-rows: repeat(9, 1fr);
+  grid-auto-flow: dense;
+  gap: 10px;
+  min-width: 1500px;
+  min-height: 1350px;  
+  padding: 20px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.mynode{
+  height: clamp(272px, calc(20vw * 1.09), 500px);
+  width: clamp(249px, 20vw, 500px);
+  border-radius: 16px;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+.mynode h3{
+  position:relative;
+  top: 10px;
+  left: 15px;
+  font-family: TRY Grtsk;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 14.4px;
+  text-align: left;
+}
+
+.search input{
+  font-size: 25px;
+  position: fixed;
+  padding: 25px 275px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 150px;
+  background: #FFFFFF;
+  box-shadow: 5px 5px 1px 1px #000;
+  background-image: url('https://img.icons8.com/ios-filled/50/000000/search.png'); /* Add search icon */
+  background-size: 40px; /* Size of the icon */
+  background-position: 200px center; /* Position the icon */
+  background-repeat: no-repeat; /* Do not repeat the icon */
+}
+
+.searchIcon{
+  display: fixed;
+  top: 60px;
+
 }

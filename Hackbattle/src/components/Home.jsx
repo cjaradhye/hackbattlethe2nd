@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Node from "./Node.js";
-import Search from "./SearchNew.js";
+import Node from "./Node.jsx";
+import Search from "./Search.jsx";
 
-function App() {
+function Home() {
   const [cards, setCards] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -33,12 +33,17 @@ function App() {
     <div className="wrapper">
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="nodeContainer">
-        {cards.map((card)=>(
-          <Node name={card.title} />
+        {cards.map((card, index)=>(
+          
+          <Node 
+            key={index}
+            index={index+1}
+            name={card.title} 
+          />
         ))}
       </div>
     </div>
   );
 }
 
-export default App;
+export default Home;

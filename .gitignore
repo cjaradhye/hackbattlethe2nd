@@ -3,6 +3,9 @@
 # dependencies
 /client/.env
 /client/node_modules
+
+/Hackbattle/.env
+/Hackbattle/node_modules
 /.pnp
 .pnp.js
 
