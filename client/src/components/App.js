@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Node from "./Node";
+import Node from "./Node.js";
+import Search from "./SearchNew.js";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -17,8 +18,20 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const card = document.getElementById(searchQuery);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [searchQuery]);
+
+  const filteredCards = cards.filter(card =>
+    card.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="wrapper">
+      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="nodeContainer">
         {cards.map((card)=>(
           <Node name={card.title} />

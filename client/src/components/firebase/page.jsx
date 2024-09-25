@@ -87,13 +87,7 @@ const SignIn = () => {
         Login with Google
       </button>
       {/* Notification Component */}
-      <Notification
-        message={notificationMessage}
-        show={showNotification}
-        color={color}
-        className="mt-32"
-        closeNotification={() => setShowNotification(false)}
-      />
+      
     </div>
   );
 };

@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Notification from "./Notification.js";
 import { auth, provider, signInWithPopup } from "./firebase/firebase.js";
 
