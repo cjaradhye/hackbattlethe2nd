@@ -3,6 +3,10 @@ import dotenv from "dotenv";
 import cors from "cors";
 import configDB from "../config/mongodb.js";
 import loginRouter from "../routes/login.js";
+import nftRouter from "../routes/minNFT.js";
+
+import main from "./block.js";
+
 const app = express();
 dotenv.config();
 const port = 5500;
@@ -23,6 +27,9 @@ app.use(
   })
 );
 
+main().then(() => process.exit(0));
+
+app.use("/mint-nft", nftRouter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/", loginRouter);
