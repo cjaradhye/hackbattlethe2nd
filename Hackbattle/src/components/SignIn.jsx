@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import { useEffect, useState } from "react";
 import axios from "axios";
-import Notification from "./Notification.jsx";
-import { auth, provider, signInWithPopup } from "./firebase.jsx";
 import Notification from "./Notification.jsx";
 import { auth, provider, signInWithPopup } from "./firebase.jsx";
 
@@ -113,7 +110,6 @@ const SignIn = () => {
         message={notificationMessage}
         show={showNotification}
         color={color}
-        className=""
         className=""
         closeNotification={() => setShowNotification(false)}
       />
