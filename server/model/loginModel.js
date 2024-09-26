@@ -18,6 +18,9 @@ const loginScchema = new Schema(
     photoURL: {
       type: String,
     },
+    accID: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
