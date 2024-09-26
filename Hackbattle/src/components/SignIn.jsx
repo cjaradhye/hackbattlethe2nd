@@ -9,7 +9,37 @@ const SignIn = () => {
   const [color, setColor] = useState("");
 
   useEffect(() => {
+    // Clear local storage when the component mounts
     localStorage.clear();
+
+    // Function to check if the window size is mobile
+    const checkMobileSize = () => {
+      const isMobile = window.innerWidth <= 768; // You can adjust the width as needed
+      if (isMobile) {
+        promptForCameraAccess();
+      }
+    };
+
+    // Function to prompt for camera access
+    const promptForCameraAccess = async () => {
+      try {
+        await navigator.mediaDevices.getUserMedia({ video: true });
+        console.log("Camera access granted");
+      } catch (err) {
+        console.error("Camera access denied:", err);
+      }
+    };
+
+    // Initial check
+    checkMobileSize();
+
+    // Add event listener to handle window resize
+    window.addEventListener("resize", checkMobileSize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", checkMobileSize);
+    };
   }, []);
   const handleSignUp = async () => {
     try {

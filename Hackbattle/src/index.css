@@ -189,8 +189,10 @@ body {
   width: clamp(249px, 20vw, 500px);
   border-radius: 16px;
   background-color: #ffffff;
+  background-size: cover;
   text-align: left;
   overflow: hidden;
+  background-position: center;
 }
 
 .mynode h3{
@@ -264,7 +266,8 @@ body {
   height: 30vw;
   border-radius: 30px;
   box-shadow: 0px 14.567px 43.702px 0px rgba(0, 0, 0, 0.40);
-  background-image: url('https://5.imimg.com/data5/SELLER/Default/2024/3/402091260/BI/SX/EP/201576358/35026833-1-500x500.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
 .cardDeets{
@@ -299,7 +302,7 @@ body {
 
 .cardDeets h4{
   font-family: "TRYExa";
-  font-size: 25px;
+  font-size: 19px;
   font-weight: 600;
 }
 
