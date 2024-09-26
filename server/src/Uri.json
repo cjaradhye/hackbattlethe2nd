@@ -1,0 +1,13 @@
+{
+  "name": " NFT #1",
+  "description": "This is a cool NFT from a collection of cool NFTs.",
+  "image": "",
+  "transactionHash":"0xDGODRHJGOPEWHKIGHFDIOUHNK",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Blue"
+    }
+   
+  ]
+}
