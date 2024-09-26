@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Node from "./Node.jsx";
 import Search from "./Search.jsx";
+import Card from "./Card.jsx";
 
 function Home() {
   const [cards, setCards] = useState([]);
@@ -34,7 +35,6 @@ function Home() {
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="nodeContainer">
         {cards.map((card, index)=>(
-          
           <Node 
             key={index}
             index={index+1}
@@ -42,6 +42,13 @@ function Home() {
           />
         ))}
       </div>
+      <Card
+        index="3"
+        name="Aradhye Macbook"
+        verification="true"
+        date="2nd March"
+        img="https://5.imimg.com/data5/SELLER/Default/2024/3/402091260/BI/SX/EP/201576358/35026833-1-500x500.jpg"
+      />
     </div>
   );
 }
