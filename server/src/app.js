@@ -27,7 +27,7 @@ app.use(
   })
 );
 
-main().then(() => process.exit(0));
+main();
 
 app.use("/mint-nft", nftRouter);
 app.use(express.json());

@@ -110,10 +110,27 @@ const SignIn = () => {
       setShowNotification(true);
     }
   };
+  const metamask = async () => {
+    if (
+      typeof window !== "undefined" &&
+      typeof window.ethereum !== "undefined"
+    ) {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        console.log(accounts[0]);
+        localStorage.setItem("accID", accounts[0]);
+      } catch (error) {
+        console.log("MetaMask connection error:", error.message);
+      }
+    } else {
+      console.log("Please install MetaMask");
+    }
+  };
 
   return (
     <div className="LoginPage">
-      
       <div className="loginbtns">
         <div className="loginTitle">
           <img src="./images/logo.png" className="loginlogo" />
@@ -133,6 +150,7 @@ const SignIn = () => {
             </div>
           </button>
         </div>
+        <button onClick={metamask}>Connect to metamask</button>
       </div>
 
       {/* Notification Component */}
@@ -148,4 +166,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-

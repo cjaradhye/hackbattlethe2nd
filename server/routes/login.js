@@ -5,14 +5,19 @@ import verifyToken from "../middleware/verifyToken.js";
 
 routerLogin.post("/signup", verifyToken, async (req, res) => {
   const { uid, email, name, picture } = req.user;
+  const { accID } = req.body;
   if (!uid) {
     return res.status(400).send("Invalid user ID");
+  }
+  console.log(accID);
+  if (!accID) {
+    return res.status(400).send("Not connected to metamask");
   }
 
   try {
     let user = await login.findOne({ uid });
     if (!user) {
-      user = new login({ uid, email, name, photoURL: picture });
+      user = new login({ uid, email, name, photoURL: picture, accID });
       await user.save();
       return res.status(201).send("Signed UP");
     }
