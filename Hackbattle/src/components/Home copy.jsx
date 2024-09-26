@@ -35,24 +35,21 @@ function Home() {
     <div className="wrapper">
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="nodeContainer">
-        {stegos.map((stego, index)=>(
+        {cards.map((card, index)=>(
           <Node 
-            key={stego.index}
-            index={stego.index}
-            name={stego.name} 
-            img={stego.img}
-            verification={stego.verification}
-            date={stego.date}
+            key={index}
+            index={index+1}
+            name={card.title} 
           />
         ))}
       </div>
-      {/* <Card
+      <Card
         index="3"
         name="Aradhye Macbook"
         verification="true"
         date="2nd March"
         img="https://5.imimg.com/data5/SELLER/Default/2024/3/402091260/BI/SX/EP/201576358/35026833-1-500x500.jpg"
-      /> */}
+      />
 
       {/* {stegos.map((card)=>{
         return(
